@@ -694,6 +694,19 @@ namespace HBergasa_RRHH.vistas
             if (!Utilidades.ValidarDNI(campoDni))
                 return;
 
+            string dni = campoDni.Text.Trim().ToUpper();
+
+            if (Consultas.ComprobarDNIExiste(dni, "candidatoadministracion"))
+            {
+                MessageBox.Show("Ya existe un candidato de administración con este DNI",
+                              "DNI duplicado",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                campoDni.Focus();
+                campoDni.Text = "";
+                return;
+            }
+
             if (!Utilidades.ValidarCodigoPostal(campoCp))
                 return;
 
@@ -753,15 +766,7 @@ namespace HBergasa_RRHH.vistas
                     nivelInformaticaInternet: nivelInternet
                 );
 
-                if (!Consultas.ComprobarDNIExiste(candidato.Dni, "candidatoadministracion"))
-                {
-                    MessageBox.Show("Ya existe un candidato de administración con este DNI",
-                                  "DNI duplicado",
-                                  MessageBoxButtons.OK,
-                                  MessageBoxIcon.Warning);
-                    campoDni.Focus();
-                    return;
-                }
+                
                 bool registro = Consultas.RegistrarCandidatoAdministracion(candidato);
 
                 if (registro)

@@ -37,5 +37,11 @@ namespace HBergasa_RRHH.vistas
             Listados l= new Listados();
             l.ShowDialog();
         }
+
+        private void botonCuatro_Click(object sender, System.EventArgs e)
+        {
+            BuscarCandidato bc= new BuscarCandidato();
+            bc.ShowDialog();
+        }
     }
 }

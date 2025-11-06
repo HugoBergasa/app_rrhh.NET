@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -102,12 +103,32 @@ namespace HBergasa_RRHH.utilidades
             return true;
         }
 
+        //CONVERTIR LA IMÁGEN PARA SER APTA EN LA BASE DE DATOS Y VICEVERSA
         public static byte[] ConvertirImagenABytes(string rutaArchivo)
         {
             if (!System.IO.File.Exists(rutaArchivo))
                 return null;
 
             return System.IO.File.ReadAllBytes(rutaArchivo);
+        }
+
+        public static Image ConvertirBytesAImagen(byte[] bytes)
+        {
+            if (bytes == null || bytes.Length == 0)
+                return null;
+
+            try
+            {
+                using (MemoryStream ms = new MemoryStream(bytes))
+                {
+                    return new Bitmap(Image.FromStream(ms));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al convertir imagen: {ex.Message}", "Error");
+                return null;
+            }
         }
 
 

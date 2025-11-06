@@ -548,6 +548,19 @@ namespace HBergasa_RRHH.vistas
             if (!Utilidades.ValidarDNI(campoDni))
                 return;
 
+            string dni = campoDni.Text.Trim().ToUpper();
+
+            if (Consultas.ComprobarDNIExiste(dni, "candidatoalmacen"))
+            {
+                MessageBox.Show("Ya existe un candidato de almacén con este DNI",
+                              "DNI duplicado",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                campoDni.Focus();
+                campoDni.Text = "";
+                return;
+            }
+
             if (!Utilidades.ValidarCodigoPostal(campoCp))
                 return;
 
@@ -597,16 +610,6 @@ namespace HBergasa_RRHH.vistas
                     carnetCarretilla: carnetCarretilla,
                     carnetCamion: carnetCamion
                 );
-
-                if (!Consultas.ComprobarDNIExiste(candidato.Dni, "candidatoalmacen"))
-                {
-                    MessageBox.Show("Ya existe un candidato de almacén con este DNI",
-                                  "DNI duplicado",
-                                  MessageBoxButtons.OK,
-                                  MessageBoxIcon.Warning);
-                    campoDni.Focus();
-                    return;
-                }
 
                 bool registro = Consultas.RegistrarCandidatoAlmacen(candidato);
 

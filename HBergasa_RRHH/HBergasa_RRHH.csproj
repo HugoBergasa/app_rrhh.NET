@@ -103,6 +103,7 @@
     <Compile Include="modelo\Candidato.cs" />
     <Compile Include="modelo\CandidatoAdministracion.cs" />
     <Compile Include="modelo\CandidatoAlmacen.cs" />
+    <Compile Include="modelo\Email.cs" />
     <Compile Include="utilidades\Utilidades.cs" />
     <Compile Include="vistas\AltaAdministracion.cs">
       <SubType>Form</SubType>
@@ -121,6 +122,12 @@
     </Compile>
     <Compile Include="vistas\BuscarCandidato.Designer.cs">
       <DependentUpon>BuscarCandidato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\DatosMensaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vistas\DatosMensaje.Designer.cs">
+      <DependentUpon>DatosMensaje.cs</DependentUpon>
     </Compile>
     <Compile Include="vistas\Listados.cs">
       <SubType>Form</SubType>
@@ -160,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="vistas\BuscarCandidato.resx">
       <DependentUpon>BuscarCandidato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vistas\DatosMensaje.resx">
+      <DependentUpon>DatosMensaje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vistas\Listados.resx">
       <DependentUpon>Listados.cs</DependentUpon>

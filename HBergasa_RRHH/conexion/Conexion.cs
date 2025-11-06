@@ -17,7 +17,7 @@ namespace HBergasa_RRHH.conexion
 
         //Sustituir DB_CONNECTION_RRHH por:
 
-       /* public static readonly string url = "Server=1; " +
+       /* public static readonly string url = "Server=; " +
        "Database=; " +
        "User=; " +
        "port=; " +

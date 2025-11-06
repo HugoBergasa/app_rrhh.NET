@@ -298,5 +298,129 @@ namespace HBergasa_RRHH.conexion
             return dt;
         }
 
+        public static CandidatoAdministracion BuscarCandidatoAdmin(string dni)
+        {
+            CandidatoAdministracion candidato = null;
+
+            try
+            {
+                using (MySqlConnection conexion = new MySqlConnection(Conexion.url))
+                {
+                    string query = "SELECT * FROM candidatoadministracion WHERE dni = @dni";
+                    MySqlCommand comando = new MySqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@dni", dni);
+
+                    conexion.Open();
+                    MySqlDataReader reader = comando.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        candidato = new CandidatoAdministracion(
+                            apellidos: reader["apellidos"].ToString(),
+                            cp: Convert.ToInt32(reader["cp"]),
+                            direccion: reader["direccion"].ToString(),
+                            dni: reader["dni"].ToString(),
+                            email: reader["email"].ToString(),
+                            estudiosFinalizados: reader["nivelEstudios"].ToString(),
+                            fechaAlta: Convert.ToDateTime(reader["fechaAlta"]),
+                            fechaNacimiento: Convert.ToDateTime(reader["fechaNacimiento"]),
+                            foto: (byte[])reader["foto"],
+                            localidad: reader["localidad"].ToString(),
+                            nombre: reader["nombre"].ToString(),
+                            observaciones: reader["observaciones"].ToString(),
+                            telefono: Convert.ToInt32(reader["telefono"]),
+                            usuariosRegistrador: reader["registrador"].ToString(),
+                            nivelInformaticaCalculo: reader["nivelInformaticaHojaCalculo"].ToString(),
+                            nivelInformaticaTexto: reader["nivelInformaticaTexto"].ToString(),
+                            nivelInformaticaInternet: reader["nivelInformaticaInternet"].ToString()
+                        );
+                    }
+
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al buscar candidato: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return candidato;
+        }
+
+        public static CandidatoAlmacen BuscarCandidatoAlmacen(string dni)
+        {
+            CandidatoAlmacen candidato = null;
+
+            try
+            {
+                using (MySqlConnection conexion = new MySqlConnection(Conexion.url))
+                {
+                    string query = "SELECT * FROM candidatoalmacen WHERE dni = @dni";
+                    MySqlCommand comando = new MySqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@dni", dni);
+
+                    conexion.Open();
+                    MySqlDataReader reader = comando.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        candidato = new CandidatoAlmacen(
+                            apellidos: reader["apellidos"].ToString(),
+                            cp: Convert.ToInt32(reader["cp"]),
+                            direccion: reader["direccion"].ToString(),
+                            dni: reader["dni"].ToString(),
+                            email: reader["email"].ToString(),
+                            estudiosFinalizados: reader["nivelEstudios"].ToString(),
+                            fechaAlta: Convert.ToDateTime(reader["fechaAlta"]),
+                            fechaNacimiento: Convert.ToDateTime(reader["fechaNacimiento"]),
+                            foto: (byte[])reader["foto"],
+                            localidad: reader["localidad"].ToString(),
+                            nombre: reader["nombre"].ToString(),
+                            observaciones: reader["observaciones"].ToString(),
+                            telefono: Convert.ToInt32(reader["telefono"]),
+                            usuariosRegistrador: reader["registrador"].ToString(),
+                            carnetConducir: reader["carnetConducir"].ToString(),
+                            carnetCarretilla: reader["carnetCarretilla"].ToString(),
+                            carnetCamion: reader["carnetCamion"].ToString()
+                        );
+                    }
+
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al buscar candidato: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return candidato;
+        }
+
+        public static bool EliminarCandidato(string dni, string tabla)
+        {
+            try
+            {
+                using (MySqlConnection conexion = new MySqlConnection(Conexion.url))
+                {
+                    string query = $"DELETE FROM {tabla} WHERE dni = @dni";
+                    MySqlCommand comando = new MySqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@dni", dni);
+
+                    conexion.Open();
+                    int filasAfectadas = comando.ExecuteNonQuery();
+
+                    return filasAfectadas > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar candidato: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
     }
 }

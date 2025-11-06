@@ -110,6 +110,7 @@
             this.botonCuatro.TabIndex = 3;
             this.botonCuatro.Text = "Buscar candidatos";
             this.botonCuatro.UseVisualStyleBackColor = false;
+            this.botonCuatro.Click += new System.EventHandler(this.botonCuatro_Click);
             // 
             // botonTres
             // 
