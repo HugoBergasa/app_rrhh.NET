@@ -15,6 +15,34 @@ namespace HBergasa_RRHH.vistas
         public Listados()
         {
             InitializeComponent();
+            configurarCuestionario();
+
+        }
+
+        private void comboTIpo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gestionComboTipo();
+
+        }
+
+        private void botonMostrarUno_Click(object sender, EventArgs e)
+        {
+            muestraCandidatosAdmin();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            muestraCandidatosAlmacen();
+        }
+
+        private void radioFiltrar_CheckedChanged(object sender, EventArgs e)
+        {
+            gestionCheckBox();
+        }
+
+        private void exportarExcel_Click(object sender, EventArgs e)
+        {
+            exportar();
         }
     }
 }

@@ -293,6 +293,9 @@ namespace HBergasa_RRHH.utilidades
             return "";
         }
 
+ 
+
+        //VALIDACIÓN DE SOLO NÚUMEROS EN LOS CAMPOS TFNO Y CP
         public static void SoloNumeros(KeyPressEventArgs e)
         {
             if (char.IsControl(e.KeyChar))

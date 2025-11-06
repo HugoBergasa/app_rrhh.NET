@@ -181,6 +181,7 @@ namespace HBergasa_RRHH.vistas
             // 
             // comboLocalidad
             // 
+            this.comboLocalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboLocalidad.FormattingEnabled = true;
             this.comboLocalidad.Items.AddRange(new object[] {
             "Seleccione",
@@ -339,6 +340,7 @@ namespace HBergasa_RRHH.vistas
             // 
             // comboEstudios
             // 
+            this.comboEstudios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboEstudios.FormattingEnabled = true;
             this.comboEstudios.Items.AddRange(new object[] {
             "Seleccione",

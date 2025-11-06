@@ -243,6 +243,60 @@ namespace HBergasa_RRHH.conexion
                 }
             }
         }
+        public static DataTable verCandidatosAdm(string condicion)
+        {
+            DataTable dt = new DataTable();
+
+            String consulta = "SELECT nombre AS NOMBRE,apellidos AS APELLIDOS,dni AS DNI,telefono AS TELEFONO,email AS EMAIL,nivelEstudios AS 'NIVEL DE ESTUDIOS', nivelInformaticaTexto AS 'NIVEL DE INFORMATICA TEXTO', nivelInformaticaHojaCalculo AS 'NIVEL DE INFORMATICA CALCULO', nivelInformaticaInternet AS 'NIVEL DE INFORMATICA INTERNET' " +
+                "FROM " +
+                "candidatoadministracion WHERE 1" + condicion;
+            using (MySqlConnection conn = new MySqlConnection(Conexion.url))
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(consulta, conn))
+                    {
+                        MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                        adp.Fill(dt);
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Error al cargar candidatos de administración");
+                }
+            }
+            return dt;
+
+        }
+        public static DataTable verCandidatosAlm(string condicion)
+        {
+            DataTable dt = new DataTable();
+
+            String consulta = "SELECT nombre AS NOMBRE,apellidos AS APELLIDOS,dni AS DNI,telefono AS TELEFONO,email AS EMAIL,nivelEstudios AS 'NIVEL DE ESTUDIOS',carnetConducir AS 'CARNET DE CONDUCIR',carnetCarretilla AS 'CARNET DE CARRETILLA',carnetCamion AS 'CARNET DE CAMION' " +
+             "FROM " +
+           "candidatoalmacen WHERE 1" + condicion;
+
+            using (MySqlConnection conn = new MySqlConnection(Conexion.url))
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(consulta, conn))
+                    {
+                        MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                        adp.Fill(dt);
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Error al cargar candidatos de almacén");
+                }
+            }
+            return dt;
+        }
 
     }
 }
