@@ -47,7 +47,7 @@ namespace HBergasa_RRHH.modelo
                         <br/>
                         <p>Atentamente:</p>
                         <p><strong>Departamento de Recursos Humanos de RMD</strong><br/>
-                        TalentosBro y Asociados S.U</p>
+                       <strong>TalentosBro y Asociados S.U</strong></p>
                         <br/>
                         <img src='http://www.reynaldomd.com/firmacorreo/firmarrhh.png' alt='Firma' style='max-width: 400px;'/>
                     </body>

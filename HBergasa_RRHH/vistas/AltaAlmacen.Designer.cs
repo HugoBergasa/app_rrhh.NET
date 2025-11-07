@@ -550,7 +550,7 @@ namespace HBergasa_RRHH.vistas
 
             string dni = campoDni.Text.Trim().ToUpper();
 
-            if (Consultas.ComprobarDNIExiste(dni, "candidatoalmacen"))
+            if (Consultas.ComprobarDNIAlm(dni, "candidatoalmacen"))
             {
                 MessageBox.Show("Ya existe un candidato de almacén con este DNI",
                               "DNI duplicado",

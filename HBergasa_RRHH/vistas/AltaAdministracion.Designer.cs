@@ -696,7 +696,7 @@ namespace HBergasa_RRHH.vistas
 
             string dni = campoDni.Text.Trim().ToUpper();
 
-            if (Consultas.ComprobarDNIExiste(dni, "candidatoadministracion"))
+            if (Consultas.ComprobarDNIAdmin(dni, "candidatoadministracion"))
             {
                 MessageBox.Show("Ya existe un candidato de administración con este DNI",
                               "DNI duplicado",

@@ -116,9 +116,33 @@ namespace HBergasa_RRHH.conexion
             return dt;
         }
 
-        public static bool ComprobarDNIExiste(string dni, string tabla)
+        public static bool ComprobarDNIAdmin(string dni, string tabla)
         {
             string consulta = "SELECT COUNT(*) FROM candidatoadministracion WHERE dni = @dni";
+
+            using (MySqlConnection conn = new MySqlConnection(Conexion.url))
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand command = new MySqlCommand(consulta, conn))
+                    {
+                        command.Parameters.AddWithValue("@dni", dni);
+                        int count = Convert.ToInt32(command.ExecuteScalar());
+                        return count > 0;
+                    }
+                }
+                catch (MySqlException e)
+                {
+                    MessageBox.Show(e.Message);
+                    return false;
+                }
+            }
+        }
+
+        public static bool ComprobarDNIAlm(string dni, string tabla)
+        {
+            string consulta = "SELECT COUNT(*) FROM candidatoalmacen WHERE dni = @dni";
 
             using (MySqlConnection conn = new MySqlConnection(Conexion.url))
             {

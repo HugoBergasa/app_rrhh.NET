@@ -112,26 +112,6 @@ namespace HBergasa_RRHH.utilidades
             return System.IO.File.ReadAllBytes(rutaArchivo);
         }
 
-        public static Image ConvertirBytesAImagen(byte[] bytes)
-        {
-            if (bytes == null || bytes.Length == 0)
-                return null;
-
-            try
-            {
-                using (MemoryStream ms = new MemoryStream(bytes))
-                {
-                    return new Bitmap(Image.FromStream(ms));
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al convertir imagen: {ex.Message}", "Error");
-                return null;
-            }
-        }
-
-
         // CONFIGURACIÓN DE EVENTOS DE FOCO
 
         public static void Foco(GroupBox grupo)

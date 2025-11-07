@@ -3,6 +3,7 @@ using HBergasa_RRHH.modelo;
 using HBergasa_RRHH.utilidades;
 using Spire.Xls;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace HBergasa_RRHH.vistas
@@ -494,7 +495,14 @@ namespace HBergasa_RRHH.vistas
                 campoTelefono.Text = candidatoAdmin.Telefono.ToString();
                 campoEmail.Text = candidatoAdmin.Email ?? "";
                 campoFechaAlta.Text = candidatoAdmin.FechaAlta.ToString("dd/MM/yyyy");
-                fotoCandidato.Image = Utilidades.ConvertirBytesAImagen(candidatoAdmin.Foto);
+
+                if (candidatoAdmin.Foto != null && candidatoAdmin.Foto.Length > 0)
+                {
+                    using (MemoryStream ms = new MemoryStream(candidatoAdmin.Foto))
+                    {
+                        fotoCandidato.Image = System.Drawing.Image.FromStream(ms);
+                    }
+                }
                 ActivarBotonesAccion();
             }
             else
@@ -519,7 +527,12 @@ namespace HBergasa_RRHH.vistas
                 campoTelefono.Text = candidatoAlmacen.Telefono.ToString();
                 campoEmail.Text = candidatoAlmacen.Email ?? "";
                 campoFechaAlta.Text = candidatoAlmacen.FechaAlta.ToString("dd/MM/yyyy");
-                fotoCandidato.Image = Utilidades.ConvertirBytesAImagen(candidatoAlmacen.Foto);
+
+                if (candidatoAlmacen.Foto != null && candidatoAlmacen.Foto.Length > 0)
+                {
+                    using (MemoryStream ms = new MemoryStream(candidatoAlmacen.Foto))
+                        fotoCandidato.Image = System.Drawing.Image.FromStream(ms);
+                }
                 ActivarBotonesAccion();
             }
             else
