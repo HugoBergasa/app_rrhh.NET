@@ -37,5 +37,11 @@ namespace HBergasa_RRHH.vistas
         {
             EnviarMail();
         }
+
+        private void botonPdf_Click(object sender, EventArgs e)
+        {
+            Mantenimiento m= new Mantenimiento();
+            m.ShowDialog();
+        }
     }
 }

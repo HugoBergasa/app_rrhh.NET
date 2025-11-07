@@ -100,6 +100,7 @@ namespace HBergasa_RRHH.vistas
             // 
             // comboHora
             // 
+            this.comboHora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboHora.FormattingEnabled = true;
             this.comboHora.Items.AddRange(new object[] {
             "Seleccione",

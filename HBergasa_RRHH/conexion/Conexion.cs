@@ -13,16 +13,16 @@ namespace HBergasa_RRHH.conexion
     internal class Conexion
     {
 
-        public static readonly string url = Environment.GetEnvironmentVariable("DB_CONNECTION_RRHH");
+        string connectionString = BBDDconfig.GetConnectionString();
 
         //Sustituir DB_CONNECTION_RRHH por:
 
-       /* public static readonly string url = "Server=; " +
-       "Database=; " +
-       "User=; " +
-       "port=; " +
-       "password=; " +
-       "Convert Zero Datetime=True";*/
+        /* public static readonly string url = "Server=; " +
+        "Database=; " +
+        "User=; " +
+        "port=; " +
+        "password=; " +
+        "Convert Zero Datetime=True";*/
 
         public static MySqlConnection GetConnection()
         {

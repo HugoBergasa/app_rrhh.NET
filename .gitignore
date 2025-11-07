@@ -3,6 +3,7 @@
 *.env
 *.json
 *.ini
+*appsettings.json
 
 # Archivos de usuario y temporales de Visual Studio
 .vs/

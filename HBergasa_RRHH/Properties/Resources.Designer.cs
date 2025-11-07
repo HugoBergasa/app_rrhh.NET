@@ -63,6 +63,16 @@ namespace HBergasa_RRHH.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_7_nov_2025__08_57_51 {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image 7 nov 2025, 08_57_51", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_microsoft_excel_2019_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-microsoft-excel-2019-48", resourceCulture);

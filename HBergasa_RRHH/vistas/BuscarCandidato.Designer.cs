@@ -80,7 +80,7 @@ namespace HBergasa_RRHH.vistas
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1082, 50);
+            this.panel1.Size = new System.Drawing.Size(1078, 50);
             this.panel1.TabIndex = 1;
             // 
             // label1
@@ -390,6 +390,7 @@ namespace HBergasa_RRHH.vistas
             this.botonPdf.TabIndex = 16;
             this.botonPdf.Text = "Ficha PDF";
             this.botonPdf.UseVisualStyleBackColor = true;
+            this.botonPdf.Click += new System.EventHandler(this.botonPdf_Click);
             // 
             // BuscarCandidato
             // 
@@ -458,6 +459,7 @@ namespace HBergasa_RRHH.vistas
         private CandidatoAdministracion candidatoAdmin;
         private CandidatoAlmacen candidatoAlmacen;
         private string tipoCandidatoActual;
+
         public static string emailCandidato;
 
 
